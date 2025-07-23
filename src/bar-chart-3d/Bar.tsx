@@ -50,11 +50,7 @@ export const Bar: FC<Props> = ({ barType, isHovered, hasAnyHover, onHover }) => 
                 onHover(false, barType);
             }}
         >
-            <RoundedBox
-                args={[BAR_WIDTH, animatedHeight, BAR_DEPTH]}
-                radius={BAR_RADIUS}
-                smoothness={BAR_SMOOTHNESS}
-            >
+            <RoundedBox args={[BAR_WIDTH, animatedHeight, BAR_DEPTH]} radius={BAR_RADIUS} smoothness={BAR_SMOOTHNESS}>
                 <meshStandardMaterial
                     color={materialColor}
                     // eslint-disable-next-line react/no-unknown-property

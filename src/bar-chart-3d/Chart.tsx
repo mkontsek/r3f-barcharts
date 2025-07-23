@@ -7,7 +7,7 @@ import { useAnimateChartTilt } from './hooks/useAnimateChartTilt';
 import { Axes } from './axes/Axes';
 import { Bar } from './Bar';
 import { Tooltip } from './Tooltip';
-import type { BarType, ProcessedDataItem, Vector3Array, Performance } from './types';
+import type { BarType, Performance, ProcessedDataItem, Vector3Array } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const GROUP_INITIAL_POSITION: Vector3Array = [0.3, 0, 0];

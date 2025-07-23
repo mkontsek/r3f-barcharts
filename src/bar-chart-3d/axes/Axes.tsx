@@ -36,16 +36,13 @@ export const Axes: FC<Props> = ({ processedData, maxValue, scale }) => {
             {/* Y-axis labels */}
             {yAxisTicks.map((tick) => (
                 <Html key={`y-tick-${tick.value}`} position={[Y_TICK_LABEL_X, tick.yPos, 0]} center>
-                    <div className={`text-gray-400 ${styles.axisLabel}`}>
-                        {`${tick.value.toFixed(0)}%`}
-                    </div>
+                    <div className={`text-gray-400 ${styles.axisLabel}`}>{`${tick.value.toFixed(0)}%`}</div>
                 </Html>
             ))}
 
             {/* X-axis year labels positioned below the X-axis line */}
             {processedData.map((item: ProcessedDataItem, index: number) => {
-                const xPosition =
-                    (index - (processedData.length - 1) / SCALE_DOWN_X_VALUE) * X_LABEL_SPACING;
+                const xPosition = (index - (processedData.length - 1) / SCALE_DOWN_X_VALUE) * X_LABEL_SPACING;
                 return (
                     <Html
                         key={`x-label-${item.year}`}

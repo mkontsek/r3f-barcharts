@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-import type {FC} from 'react';
-import {OrbitControls} from '@react-three/drei';
-import {Canvas} from '@react-three/fiber';
+import type { FC } from 'react';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 
-import type {Performance, Vector3Array} from './types';
-import {Chart} from './Chart';
+import type { Performance, Vector3Array } from './types';
+import { Chart } from './Chart';
 import styles from './styles.module.css';
 
 const CANVAS_CAMERA_POSITION: number[] = [0, 0, 5];
@@ -21,24 +20,28 @@ type Props = {
     data?: Performance[];
 };
 
-export const BarChart3D: FC<Props> = ({data}) => {
+export const BarChart3D: FC<Props> = ({ data }) => {
     if (!data || data.length === 0) {
         return null;
     }
 
     return (
         <div className={`bg-gray-50 rounded-lg overflow-hidden ${styles.container}`}>
-            {/* @ts-expect-error camera prop is defined  */}
-            <Canvas camera={{position: CANVAS_CAMERA_POSITION, fov: CANVAS_CAMERA_FOV}}>
+            <Canvas
+                camera={{
+                    position: CANVAS_CAMERA_POSITION as Vector3Array,
+                    fov: CANVAS_CAMERA_FOV,
+                }}
+            >
                 {/* eslint-disable-next-line react/no-unknown-property */}
-                <ambientLight intensity={AMBIENT_LIGHT_INTENSITY}/>
+                <ambientLight intensity={AMBIENT_LIGHT_INTENSITY} />
                 <directionalLight
                     // eslint-disable-next-line react/no-unknown-property
                     position={DIRECTIONAL_LIGHT_POSITION}
                     // eslint-disable-next-line react/no-unknown-property
                     intensity={DIRECTIONAL_LIGHT_INTENSITY}
                 />
-                <Chart data={data}/>
+                <Chart data={data} />
                 <OrbitControls
                     enableZoom={false}
                     enablePan={false}

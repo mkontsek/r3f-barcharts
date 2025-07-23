@@ -8,10 +8,7 @@ const CHART_TILT_HOVER_Y: number = 0.1;
 const CHART_TILT_IDLE_Y: number = 0;
 const CHART_TILT_LERP_FACTOR: number = 0.1;
 
-export const useAnimateChartTilt = (
-    groupRef: RefObject<THREE.Group | null> | null,
-    hoveredBar: BarType | null,
-) => {
+export const useAnimateChartTilt = (groupRef: RefObject<THREE.Group | null> | null, hoveredBar: BarType | null) => {
     useFrame(() => {
         if (!groupRef?.current) {
             return;
